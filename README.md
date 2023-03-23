@@ -226,9 +226,3 @@ List available computer vision models and metadata of the models.
      
     Accept : 'application/json'
     Content-Type : 'application/json'
-
-
-## License
-
-#### Apache-2.0
-
