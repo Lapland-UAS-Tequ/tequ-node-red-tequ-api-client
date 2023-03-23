@@ -11,7 +11,7 @@ To install the stable version use the `Menu - Manage palette - Install`
 option and search for tequ-node-red-tequ-api-client, or run the following 
 command in your Node-RED user directory, typically `~/.node-red`
 
-    npm install tequ-node-red-tequ-api-client
+    npm install Lapland-UAS-Tequ/tequ-node-red-tequ-api-client
 
 ## Usage
 
