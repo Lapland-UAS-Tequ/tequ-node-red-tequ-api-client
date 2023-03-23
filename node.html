@@ -1,0 +1,1864 @@
+<script type="text/javascript">
+    RED.nodes.registerType('tequ-api-client', {
+        category: 'Tequ',
+        color: '#89bf04',
+        defaults: {
+            method: { value: "", required: true },
+            postToken_username: { value: "" },
+            postToken_usernameType: { value: "str" },
+            postToken_password: { value: "" },
+            postToken_passwordType: { value: "str" },
+            getDatasource_authorization: { value: "" },
+            getDatasource_authorizationType: { value: "str" },
+            getDatasource_galleryId: { value: "" },
+            getDatasource_galleryIdType: { value: "str" },
+            getDatasource_token: { value: "" },
+            getDatasource_tokenType: { value: "str" },
+            getDatasourceIdById_id: { value: "" },
+            getDatasourceIdById_idType: { value: "str" },
+            getDatasourceIdById_authorization: { value: "" },
+            getDatasourceIdById_authorizationType: { value: "str" },
+            getDatasourceIdById_token: { value: "" },
+            getDatasourceIdById_tokenType: { value: "str" },
+            getGalleries_authorization: { value: "" },
+            getGalleries_authorizationType: { value: "str" },
+            getGalleries_token: { value: "" },
+            getGalleries_tokenType: { value: "str" },
+            getImageIdByIdDataByType_id: { value: "" },
+            getImageIdByIdDataByType_idType: { value: "str" },
+            getImageIdByIdDataByType_type: { value: "" },
+            getImageIdByIdDataByType_typeType: { value: "str" },
+            getImageIdByIdDataByType_authorization: { value: "" },
+            getImageIdByIdDataByType_authorizationType: { value: "str" },
+            getImageIdByIdDataByType_token: { value: "" },
+            getImageIdByIdDataByType_tokenType: { value: "str" },
+            getImageIdById_id: { value: "" },
+            getImageIdById_idType: { value: "str" },
+            getImageIdById_authorization: { value: "" },
+            getImageIdById_authorizationType: { value: "str" },
+            getImageIdById_token: { value: "" },
+            getImageIdById_tokenType: { value: "str" },
+            getImage_authorization: { value: "" },
+            getImage_authorizationType: { value: "str" },
+            getImage_limit: { value: "" },
+            getImage_limitType: { value: "str" },
+            getImage_startTime: { value: "" },
+            getImage_startTimeType: { value: "str" },
+            getImage_endTime: { value: "" },
+            getImage_endTimeType: { value: "str" },
+            getImage_datasource: { value: "" },
+            getImage_datasourceType: { value: "str" },
+            getImage_bookmark: { value: "" },
+            getImage_bookmarkType: { value: "str" },
+            getImage_sort: { value: "" },
+            getImage_sortType: { value: "str" },
+            getImage_fields: { value: "" },
+            getImage_fieldsType: { value: "str" },
+            getImage_token: { value: "" },
+            getImage_tokenType: { value: "str" },
+            getImage_serverTimestampStart: { value: "" },
+            getImage_serverTimestampStartType: { value: "str" },
+            getImage_serverTimestampEnd: { value: "" },
+            getImage_serverTimestampEndType: { value: "str" },
+            postImageAdd_authorization: { value: "" },
+            postImageAdd_authorizationType: { value: "str" },
+            postImageAdd_payload: { value: "" },
+            postImageAdd_payloadType: { value: "str" },
+            deleteImageDeleteIdById_authorization: { value: "" },
+            deleteImageDeleteIdById_authorizationType: { value: "str" },
+            deleteImageDeleteIdById_id: { value: "" },
+            deleteImageDeleteIdById_idType: { value: "str" },
+            getVideoIdByIdDataByType_id: { value: "" },
+            getVideoIdByIdDataByType_idType: { value: "str" },
+            getVideoIdByIdDataByType_authorization: { value: "" },
+            getVideoIdByIdDataByType_authorizationType: { value: "str" },
+            getVideoIdByIdDataByType_type: { value: "" },
+            getVideoIdByIdDataByType_typeType: { value: "str" },
+            getVideoIdByIdDataByType_token: { value: "" },
+            getVideoIdByIdDataByType_tokenType: { value: "str" },
+            getVideoIdById_id: { value: "" },
+            getVideoIdById_idType: { value: "str" },
+            getVideoIdById_authorization: { value: "" },
+            getVideoIdById_authorizationType: { value: "str" },
+            getVideoIdById_token: { value: "" },
+            getVideoIdById_tokenType: { value: "str" },
+            getVideo_authorization: { value: "" },
+            getVideo_authorizationType: { value: "str" },
+            getVideo_limit: { value: "" },
+            getVideo_limitType: { value: "str" },
+            getVideo_startTime: { value: "" },
+            getVideo_startTimeType: { value: "str" },
+            getVideo_endTime: { value: "" },
+            getVideo_endTimeType: { value: "str" },
+            getVideo_datasouce: { value: "" },
+            getVideo_datasouceType: { value: "str" },
+            getVideo_bookmark: { value: "" },
+            getVideo_bookmarkType: { value: "str" },
+            getVideo_sort: { value: "" },
+            getVideo_sortType: { value: "str" },
+            getVideo_fields: { value: "" },
+            getVideo_fieldsType: { value: "str" },
+            getVideo_token: { value: "" },
+            getVideo_tokenType: { value: "str" },
+            postVideoAdd_authorization: { value: "" },
+            postVideoAdd_authorizationType: { value: "str" },
+            postVideoAdd_payload: { value: "" },
+            postVideoAdd_payloadType: { value: "str" },
+            deleteVideoDeleteIdById_authorization: { value: "" },
+            deleteVideoDeleteIdById_authorizationType: { value: "str" },
+            deleteVideoDeleteIdById_id: { value: "" },
+            deleteVideoDeleteIdById_idType: { value: "str" },
+            getSensordataDatasourceByDatasourceSensorBySensor_datasource: { value: "" },
+            getSensordataDatasourceByDatasourceSensorBySensor_datasourceType: { value: "str" },
+            getSensordataDatasourceByDatasourceSensorBySensor_sensor: { value: "" },
+            getSensordataDatasourceByDatasourceSensorBySensor_sensorType: { value: "str" },
+            getSensordataDatasourceByDatasourceSensorBySensor_startTime: { value: "" },
+            getSensordataDatasourceByDatasourceSensorBySensor_startTimeType: { value: "str" },
+            getSensordataDatasourceByDatasourceSensorBySensor_endTime: { value: "" },
+            getSensordataDatasourceByDatasourceSensorBySensor_endTimeType: { value: "str" },
+            getSensordataDatasourceByDatasourceSensorBySensor_aggregation: { value: "" },
+            getSensordataDatasourceByDatasourceSensorBySensor_aggregationType: { value: "str" },
+            getSensordataDatasourceByDatasourceSensorBySensor_limit: { value: "" },
+            getSensordataDatasourceByDatasourceSensorBySensor_limitType: { value: "str" },
+            getSensordataDatasourceByDatasourceSensorBySensor_skip: { value: "" },
+            getSensordataDatasourceByDatasourceSensorBySensor_skipType: { value: "str" },
+            getSensordataDatasourceByDatasourceSensorBySensor_format: { value: "" },
+            getSensordataDatasourceByDatasourceSensorBySensor_formatType: { value: "str" },
+            getSensordataDatasourceByDatasourceSensorBySensor_timezone: { value: "" },
+            getSensordataDatasourceByDatasourceSensorBySensor_timezoneType: { value: "str" },
+            getSensordataDatasourceByDatasourceSensorBySensor_acceptEncoding: { value: "" },
+            getSensordataDatasourceByDatasourceSensorBySensor_acceptEncodingType: { value: "str" },
+            getSensordataDatasourceByDatasourceSensorBySensor_authorization: { value: "" },
+            getSensordataDatasourceByDatasourceSensorBySensor_authorizationType: { value: "str" },
+            postSensordataDatasourceByDatasourceFind_authorization: { value: "" },
+            postSensordataDatasourceByDatasourceFind_authorizationType: { value: "str" },
+            postSensordataDatasourceByDatasourceFind_datasource: { value: "" },
+            postSensordataDatasourceByDatasourceFind_datasourceType: { value: "str" },
+            postSensordataDatasourceByDatasourceFind_query: { value: "" },
+            postSensordataDatasourceByDatasourceFind_queryType: { value: "str" },
+            postSensordataDatasourceByDatasourceFind_archive: { value: "" },
+            postSensordataDatasourceByDatasourceFind_archiveType: { value: "str" },
+            postCvImage_authorization: { value: "" },
+            postCvImage_authorizationType: { value: "str" },
+            postCvImage_payload: { value: "" },
+            postCvImage_payloadType: { value: "str" },
+            postCvImage_model: { value: "" },
+            postCvImage_modelType: { value: "str" },
+            getCvModels_authorization: { value: "" },
+            getCvModels_authorizationType: { value: "str" },
+            name: { value: "" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: 'icon.png',
+        label: function () {
+            return this.name || this.method || "tequ-api-client";
+        },
+        labelStyle: function() {
+            return this.name?"node_label_italic":"";
+        },
+        oneditprepare: function () {
+            var selectedMethod = $('#node-input-method option:selected');
+            if (!selectedMethod.val()) {
+                var methods = $('#node-input-method').children();
+                var firstMethod = methods.first();
+                $('#node-input-method').val(firstMethod.val());
+            }
+
+            var showParameters = function () {
+
+                $("#node-input-postToken_username").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-postToken_usernameType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#postToken_username").hide();
+
+                $("#node-input-postToken_password").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-postToken_passwordType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#postToken_password").hide();
+
+                $("#node-input-getDatasource_authorization").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getDatasource_authorizationType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getDatasource_authorization").hide();
+
+                $("#node-input-getDatasource_galleryId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getDatasource_galleryIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getDatasource_galleryId").hide();
+
+                $("#node-input-getDatasource_token").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getDatasource_tokenType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getDatasource_token").hide();
+
+                $("#node-input-getDatasourceIdById_id").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getDatasourceIdById_idType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getDatasourceIdById_id").hide();
+
+                $("#node-input-getDatasourceIdById_authorization").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getDatasourceIdById_authorizationType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getDatasourceIdById_authorization").hide();
+
+                $("#node-input-getDatasourceIdById_token").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getDatasourceIdById_tokenType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getDatasourceIdById_token").hide();
+
+                $("#node-input-getGalleries_authorization").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getGalleries_authorizationType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getGalleries_authorization").hide();
+
+                $("#node-input-getGalleries_token").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getGalleries_tokenType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getGalleries_token").hide();
+
+                $("#node-input-getImageIdByIdDataByType_id").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getImageIdByIdDataByType_idType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getImageIdByIdDataByType_id").hide();
+
+                $("#node-input-getImageIdByIdDataByType_type").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getImageIdByIdDataByType_typeType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getImageIdByIdDataByType_type").hide();
+
+                $("#node-input-getImageIdByIdDataByType_authorization").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getImageIdByIdDataByType_authorizationType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getImageIdByIdDataByType_authorization").hide();
+
+                $("#node-input-getImageIdByIdDataByType_token").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getImageIdByIdDataByType_tokenType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getImageIdByIdDataByType_token").hide();
+
+                $("#node-input-getImageIdById_id").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getImageIdById_idType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getImageIdById_id").hide();
+
+                $("#node-input-getImageIdById_authorization").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getImageIdById_authorizationType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getImageIdById_authorization").hide();
+
+                $("#node-input-getImageIdById_token").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getImageIdById_tokenType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getImageIdById_token").hide();
+
+                $("#node-input-getImage_authorization").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getImage_authorizationType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getImage_authorization").hide();
+
+                $("#node-input-getImage_limit").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getImage_limitType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getImage_limit").hide();
+
+                $("#node-input-getImage_startTime").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getImage_startTimeType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getImage_startTime").hide();
+
+                $("#node-input-getImage_endTime").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getImage_endTimeType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getImage_endTime").hide();
+
+                $("#node-input-getImage_datasource").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getImage_datasourceType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getImage_datasource").hide();
+
+                $("#node-input-getImage_bookmark").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getImage_bookmarkType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getImage_bookmark").hide();
+
+                $("#node-input-getImage_sort").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getImage_sortType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getImage_sort").hide();
+
+                $("#node-input-getImage_fields").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getImage_fieldsType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getImage_fields").hide();
+
+                $("#node-input-getImage_token").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getImage_tokenType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getImage_token").hide();
+
+                $("#node-input-getImage_serverTimestampStart").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getImage_serverTimestampStartType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getImage_serverTimestampStart").hide();
+
+                $("#node-input-getImage_serverTimestampEnd").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getImage_serverTimestampEndType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getImage_serverTimestampEnd").hide();
+
+                $("#node-input-postImageAdd_authorization").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-postImageAdd_authorizationType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#postImageAdd_authorization").hide();
+
+                $("#node-input-postImageAdd_payload").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-postImageAdd_payloadType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#postImageAdd_payload").hide();
+
+                $("#node-input-deleteImageDeleteIdById_authorization").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-deleteImageDeleteIdById_authorizationType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#deleteImageDeleteIdById_authorization").hide();
+
+                $("#node-input-deleteImageDeleteIdById_id").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-deleteImageDeleteIdById_idType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#deleteImageDeleteIdById_id").hide();
+
+                $("#node-input-getVideoIdByIdDataByType_id").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getVideoIdByIdDataByType_idType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getVideoIdByIdDataByType_id").hide();
+
+                $("#node-input-getVideoIdByIdDataByType_authorization").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getVideoIdByIdDataByType_authorizationType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getVideoIdByIdDataByType_authorization").hide();
+
+                $("#node-input-getVideoIdByIdDataByType_type").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getVideoIdByIdDataByType_typeType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getVideoIdByIdDataByType_type").hide();
+
+                $("#node-input-getVideoIdByIdDataByType_token").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getVideoIdByIdDataByType_tokenType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getVideoIdByIdDataByType_token").hide();
+
+                $("#node-input-getVideoIdById_id").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getVideoIdById_idType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getVideoIdById_id").hide();
+
+                $("#node-input-getVideoIdById_authorization").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getVideoIdById_authorizationType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getVideoIdById_authorization").hide();
+
+                $("#node-input-getVideoIdById_token").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getVideoIdById_tokenType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getVideoIdById_token").hide();
+
+                $("#node-input-getVideo_authorization").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getVideo_authorizationType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getVideo_authorization").hide();
+
+                $("#node-input-getVideo_limit").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getVideo_limitType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getVideo_limit").hide();
+
+                $("#node-input-getVideo_startTime").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getVideo_startTimeType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getVideo_startTime").hide();
+
+                $("#node-input-getVideo_endTime").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getVideo_endTimeType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getVideo_endTime").hide();
+
+                $("#node-input-getVideo_datasouce").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getVideo_datasouceType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getVideo_datasouce").hide();
+
+                $("#node-input-getVideo_bookmark").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getVideo_bookmarkType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getVideo_bookmark").hide();
+
+                $("#node-input-getVideo_sort").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getVideo_sortType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getVideo_sort").hide();
+
+                $("#node-input-getVideo_fields").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getVideo_fieldsType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getVideo_fields").hide();
+
+                $("#node-input-getVideo_token").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getVideo_tokenType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getVideo_token").hide();
+
+                $("#node-input-postVideoAdd_authorization").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-postVideoAdd_authorizationType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#postVideoAdd_authorization").hide();
+
+                $("#node-input-postVideoAdd_payload").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-postVideoAdd_payloadType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#postVideoAdd_payload").hide();
+
+                $("#node-input-deleteVideoDeleteIdById_authorization").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-deleteVideoDeleteIdById_authorizationType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#deleteVideoDeleteIdById_authorization").hide();
+
+                $("#node-input-deleteVideoDeleteIdById_id").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-deleteVideoDeleteIdById_idType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#deleteVideoDeleteIdById_id").hide();
+
+                $("#node-input-getSensordataDatasourceByDatasourceSensorBySensor_datasource").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getSensordataDatasourceByDatasourceSensorBySensor_datasourceType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getSensordataDatasourceByDatasourceSensorBySensor_datasource").hide();
+
+                $("#node-input-getSensordataDatasourceByDatasourceSensorBySensor_sensor").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getSensordataDatasourceByDatasourceSensorBySensor_sensorType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getSensordataDatasourceByDatasourceSensorBySensor_sensor").hide();
+
+                $("#node-input-getSensordataDatasourceByDatasourceSensorBySensor_startTime").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getSensordataDatasourceByDatasourceSensorBySensor_startTimeType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getSensordataDatasourceByDatasourceSensorBySensor_startTime").hide();
+
+                $("#node-input-getSensordataDatasourceByDatasourceSensorBySensor_endTime").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getSensordataDatasourceByDatasourceSensorBySensor_endTimeType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getSensordataDatasourceByDatasourceSensorBySensor_endTime").hide();
+
+                $("#node-input-getSensordataDatasourceByDatasourceSensorBySensor_aggregation").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getSensordataDatasourceByDatasourceSensorBySensor_aggregationType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getSensordataDatasourceByDatasourceSensorBySensor_aggregation").hide();
+
+                $("#node-input-getSensordataDatasourceByDatasourceSensorBySensor_limit").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getSensordataDatasourceByDatasourceSensorBySensor_limitType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getSensordataDatasourceByDatasourceSensorBySensor_limit").hide();
+
+                $("#node-input-getSensordataDatasourceByDatasourceSensorBySensor_skip").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getSensordataDatasourceByDatasourceSensorBySensor_skipType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getSensordataDatasourceByDatasourceSensorBySensor_skip").hide();
+
+                $("#node-input-getSensordataDatasourceByDatasourceSensorBySensor_format").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getSensordataDatasourceByDatasourceSensorBySensor_formatType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getSensordataDatasourceByDatasourceSensorBySensor_format").hide();
+
+                $("#node-input-getSensordataDatasourceByDatasourceSensorBySensor_timezone").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getSensordataDatasourceByDatasourceSensorBySensor_timezoneType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getSensordataDatasourceByDatasourceSensorBySensor_timezone").hide();
+
+                $("#node-input-getSensordataDatasourceByDatasourceSensorBySensor_acceptEncoding").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getSensordataDatasourceByDatasourceSensorBySensor_acceptEncodingType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getSensordataDatasourceByDatasourceSensorBySensor_acceptEncoding").hide();
+
+                $("#node-input-getSensordataDatasourceByDatasourceSensorBySensor_authorization").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getSensordataDatasourceByDatasourceSensorBySensor_authorizationType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getSensordataDatasourceByDatasourceSensorBySensor_authorization").hide();
+
+                $("#node-input-postSensordataDatasourceByDatasourceFind_authorization").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-postSensordataDatasourceByDatasourceFind_authorizationType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#postSensordataDatasourceByDatasourceFind_authorization").hide();
+
+                $("#node-input-postSensordataDatasourceByDatasourceFind_datasource").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-postSensordataDatasourceByDatasourceFind_datasourceType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#postSensordataDatasourceByDatasourceFind_datasource").hide();
+
+                $("#node-input-postSensordataDatasourceByDatasourceFind_query").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-postSensordataDatasourceByDatasourceFind_queryType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#postSensordataDatasourceByDatasourceFind_query").hide();
+
+                $("#node-input-postSensordataDatasourceByDatasourceFind_archive").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-postSensordataDatasourceByDatasourceFind_archiveType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#postSensordataDatasourceByDatasourceFind_archive").hide();
+
+                $("#node-input-postCvImage_authorization").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-postCvImage_authorizationType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#postCvImage_authorization").hide();
+
+                $("#node-input-postCvImage_payload").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-postCvImage_payloadType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#postCvImage_payload").hide();
+
+                $("#node-input-postCvImage_model").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-postCvImage_modelType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#postCvImage_model").hide();
+
+                $("#node-input-getCvModels_authorization").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getCvModels_authorizationType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getCvModels_authorization").hide();
+
+                $("#optional-parameters").hide();
+                $("#optional-parameters-label").hide();
+                if ($("#node-input-method").val() === 'postRefresh') {
+
+                }
+                if ($("#node-input-method").val() === 'postToken') {
+
+                }
+                if ($("#node-input-method").val() === 'getDatasource') {
+
+                    $("#optional-parameters").show();
+                    $("#optional-parameters-label").show();
+                    
+                }
+                if ($("#node-input-method").val() === 'getDatasourceIdById') {
+
+                    $("#optional-parameters").show();
+                    $("#optional-parameters-label").show();
+                    
+                }
+                if ($("#node-input-method").val() === 'getGalleries') {
+
+                    $("#optional-parameters").show();
+                    $("#optional-parameters-label").show();
+                    
+                }
+                if ($("#node-input-method").val() === 'getImageIdByIdDataByType') {
+
+                    $("#optional-parameters").show();
+                    $("#optional-parameters-label").show();
+                    
+                }
+                if ($("#node-input-method").val() === 'getImageIdById') {
+
+                    $("#optional-parameters").show();
+                    $("#optional-parameters-label").show();
+                    
+                }
+                if ($("#node-input-method").val() === 'getImage') {
+
+                    $("#optional-parameters").show();
+                    $("#optional-parameters-label").show();
+                    
+                }
+                if ($("#node-input-method").val() === 'postImageAdd') {
+
+                }
+                if ($("#node-input-method").val() === 'deleteImageDeleteIdById') {
+
+                }
+                if ($("#node-input-method").val() === 'getVideoIdByIdDataByType') {
+
+                    $("#optional-parameters").show();
+                    $("#optional-parameters-label").show();
+                    
+                }
+                if ($("#node-input-method").val() === 'getVideoIdById') {
+
+                    $("#optional-parameters").show();
+                    $("#optional-parameters-label").show();
+                    
+                }
+                if ($("#node-input-method").val() === 'getVideo') {
+
+                    $("#optional-parameters").show();
+                    $("#optional-parameters-label").show();
+                    
+                }
+                if ($("#node-input-method").val() === 'postVideoAdd') {
+
+                }
+                if ($("#node-input-method").val() === 'deleteVideoDeleteIdById') {
+
+                }
+                if ($("#node-input-method").val() === 'getSensordataDatasourceByDatasourceSensorBySensor') {
+
+                    $("#optional-parameters").show();
+                    $("#optional-parameters-label").show();
+                    
+                }
+                if ($("#node-input-method").val() === 'postSensordataDatasourceByDatasourceFind') {
+
+                }
+                if ($("#node-input-method").val() === 'postCvImage') {
+
+                }
+                if ($("#node-input-method").val() === 'getCvModels') {
+
+                }
+
+                if ($("#optional-parameters").prop('checked')) {
+                    if ($("#node-input-method").val() === 'postRefresh') {
+
+                    }
+                    if ($("#node-input-method").val() === 'postToken') {
+
+                        $("#postToken_username").show();
+                        
+                        $("#postToken_password").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getDatasource') {
+
+                        $("#getDatasource_authorization").show();
+                        
+                        $("#getDatasource_galleryId").show();
+                        
+                        $("#getDatasource_token").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getDatasourceIdById') {
+
+                        $("#getDatasourceIdById_id").show();
+                        
+                        $("#getDatasourceIdById_authorization").show();
+                        
+                        $("#getDatasourceIdById_token").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getGalleries') {
+
+                        $("#getGalleries_authorization").show();
+                        
+                        $("#getGalleries_token").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getImageIdByIdDataByType') {
+
+                        $("#getImageIdByIdDataByType_id").show();
+                        
+                        $("#getImageIdByIdDataByType_type").show();
+                        
+                        $("#getImageIdByIdDataByType_authorization").show();
+                        
+                        $("#getImageIdByIdDataByType_token").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getImageIdById') {
+
+                        $("#getImageIdById_id").show();
+                        
+                        $("#getImageIdById_authorization").show();
+                        
+                        $("#getImageIdById_token").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getImage') {
+
+                        $("#getImage_authorization").show();
+                        
+                        $("#getImage_limit").show();
+                        
+                        $("#getImage_startTime").show();
+                        
+                        $("#getImage_endTime").show();
+                        
+                        $("#getImage_datasource").show();
+                        
+                        $("#getImage_bookmark").show();
+                        
+                        $("#getImage_sort").show();
+                        
+                        $("#getImage_fields").show();
+                        
+                        $("#getImage_token").show();
+                        
+                        $("#getImage_serverTimestampStart").show();
+                        
+                        $("#getImage_serverTimestampEnd").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'postImageAdd') {
+
+                        $("#postImageAdd_authorization").show();
+                        
+                        $("#postImageAdd_payload").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'deleteImageDeleteIdById') {
+
+                        $("#deleteImageDeleteIdById_authorization").show();
+                        
+                        $("#deleteImageDeleteIdById_id").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getVideoIdByIdDataByType') {
+
+                        $("#getVideoIdByIdDataByType_id").show();
+                        
+                        $("#getVideoIdByIdDataByType_authorization").show();
+                        
+                        $("#getVideoIdByIdDataByType_type").show();
+                        
+                        $("#getVideoIdByIdDataByType_token").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getVideoIdById') {
+
+                        $("#getVideoIdById_id").show();
+                        
+                        $("#getVideoIdById_authorization").show();
+                        
+                        $("#getVideoIdById_token").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getVideo') {
+
+                        $("#getVideo_authorization").show();
+                        
+                        $("#getVideo_limit").show();
+                        
+                        $("#getVideo_startTime").show();
+                        
+                        $("#getVideo_endTime").show();
+                        
+                        $("#getVideo_datasouce").show();
+                        
+                        $("#getVideo_bookmark").show();
+                        
+                        $("#getVideo_sort").show();
+                        
+                        $("#getVideo_fields").show();
+                        
+                        $("#getVideo_token").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'postVideoAdd') {
+
+                        $("#postVideoAdd_authorization").show();
+                        
+                        $("#postVideoAdd_payload").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'deleteVideoDeleteIdById') {
+
+                        $("#deleteVideoDeleteIdById_authorization").show();
+                        
+                        $("#deleteVideoDeleteIdById_id").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getSensordataDatasourceByDatasourceSensorBySensor') {
+
+                        $("#getSensordataDatasourceByDatasourceSensorBySensor_datasource").show();
+                        
+                        $("#getSensordataDatasourceByDatasourceSensorBySensor_sensor").show();
+                        
+                        $("#getSensordataDatasourceByDatasourceSensorBySensor_startTime").show();
+                        
+                        $("#getSensordataDatasourceByDatasourceSensorBySensor_endTime").show();
+                        
+                        $("#getSensordataDatasourceByDatasourceSensorBySensor_aggregation").show();
+                        
+                        $("#getSensordataDatasourceByDatasourceSensorBySensor_limit").show();
+                        
+                        $("#getSensordataDatasourceByDatasourceSensorBySensor_skip").show();
+                        
+                        $("#getSensordataDatasourceByDatasourceSensorBySensor_format").show();
+                        
+                        $("#getSensordataDatasourceByDatasourceSensorBySensor_timezone").show();
+                        
+                        $("#getSensordataDatasourceByDatasourceSensorBySensor_acceptEncoding").show();
+                        
+                        $("#getSensordataDatasourceByDatasourceSensorBySensor_authorization").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'postSensordataDatasourceByDatasourceFind') {
+
+                        $("#postSensordataDatasourceByDatasourceFind_authorization").show();
+                        
+                        $("#postSensordataDatasourceByDatasourceFind_datasource").show();
+                        
+                        $("#postSensordataDatasourceByDatasourceFind_query").show();
+                        
+                        $("#postSensordataDatasourceByDatasourceFind_archive").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'postCvImage') {
+
+                        $("#postCvImage_authorization").show();
+                        
+                        $("#postCvImage_payload").show();
+                        
+                        $("#postCvImage_model").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getCvModels') {
+
+                        $("#getCvModels_authorization").show();
+                        
+                    }
+                } else {
+                    if ($("#node-input-method").val() === 'postRefresh') {
+
+                    }
+                    if ($("#node-input-method").val() === 'postToken') {
+
+                        $("#postToken_username").show();
+                        
+                        $("#postToken_password").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getDatasource') {
+
+                        $("#getDatasource_authorization").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getDatasourceIdById') {
+
+                        $("#getDatasourceIdById_id").show();
+                        
+                        $("#getDatasourceIdById_authorization").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getGalleries') {
+
+                        $("#getGalleries_authorization").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getImageIdByIdDataByType') {
+
+                        $("#getImageIdByIdDataByType_id").show();
+                        
+                        $("#getImageIdByIdDataByType_type").show();
+                        
+                        $("#getImageIdByIdDataByType_authorization").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getImageIdById') {
+
+                        $("#getImageIdById_id").show();
+                        
+                        $("#getImageIdById_authorization").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getImage') {
+
+                        $("#getImage_authorization").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'postImageAdd') {
+
+                        $("#postImageAdd_authorization").show();
+                        
+                        $("#postImageAdd_payload").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'deleteImageDeleteIdById') {
+
+                        $("#deleteImageDeleteIdById_authorization").show();
+                        
+                        $("#deleteImageDeleteIdById_id").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getVideoIdByIdDataByType') {
+
+                        $("#getVideoIdByIdDataByType_id").show();
+                        
+                        $("#getVideoIdByIdDataByType_authorization").show();
+                        
+                        $("#getVideoIdByIdDataByType_type").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getVideoIdById') {
+
+                        $("#getVideoIdById_id").show();
+                        
+                        $("#getVideoIdById_authorization").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getVideo') {
+
+                        $("#getVideo_authorization").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'postVideoAdd') {
+
+                        $("#postVideoAdd_authorization").show();
+                        
+                        $("#postVideoAdd_payload").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'deleteVideoDeleteIdById') {
+
+                        $("#deleteVideoDeleteIdById_authorization").show();
+                        
+                        $("#deleteVideoDeleteIdById_id").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getSensordataDatasourceByDatasourceSensorBySensor') {
+
+                        $("#getSensordataDatasourceByDatasourceSensorBySensor_datasource").show();
+                        
+                        $("#getSensordataDatasourceByDatasourceSensorBySensor_sensor").show();
+                        
+                        $("#getSensordataDatasourceByDatasourceSensorBySensor_startTime").show();
+                        
+                        $("#getSensordataDatasourceByDatasourceSensorBySensor_endTime").show();
+                        
+                        $("#getSensordataDatasourceByDatasourceSensorBySensor_authorization").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'postSensordataDatasourceByDatasourceFind') {
+
+                        $("#postSensordataDatasourceByDatasourceFind_authorization").show();
+                        
+                        $("#postSensordataDatasourceByDatasourceFind_datasource").show();
+                        
+                        $("#postSensordataDatasourceByDatasourceFind_query").show();
+                        
+                        $("#postSensordataDatasourceByDatasourceFind_archive").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'postCvImage') {
+
+                        $("#postCvImage_authorization").show();
+                        
+                        $("#postCvImage_payload").show();
+                        
+                        $("#postCvImage_model").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getCvModels') {
+
+                        $("#getCvModels_authorization").show();
+                        
+                    }
+                }
+            };
+
+            $("#node-input-method").change(function () {
+                showParameters();
+            });
+
+            $("#optional-parameters").change(function () {
+                showParameters();
+            });
+
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="tequ-api-client">
+
+    <div class="form-row">
+        <label for="node-input-method"><i class="fa fa-tasks"></i> <span data-i18n="TequApi.label.method"></span></label>
+        <select id="node-input-method">
+            <option value="postRefresh" data-i18n="TequApi.parameters.postRefresh"></option>
+            <option value="postToken" data-i18n="TequApi.parameters.postToken"></option>
+            <option value="getDatasource" data-i18n="TequApi.parameters.getDatasource"></option>
+            <option value="getDatasourceIdById" data-i18n="TequApi.parameters.getDatasourceIdById"></option>
+            <option value="getGalleries" data-i18n="TequApi.parameters.getGalleries"></option>
+            <option value="getImageIdByIdDataByType" data-i18n="TequApi.parameters.getImageIdByIdDataByType"></option>
+            <option value="getImageIdById" data-i18n="TequApi.parameters.getImageIdById"></option>
+            <option value="getImage" data-i18n="TequApi.parameters.getImage"></option>
+            <option value="postImageAdd" data-i18n="TequApi.parameters.postImageAdd"></option>
+            <option value="deleteImageDeleteIdById" data-i18n="TequApi.parameters.deleteImageDeleteIdById"></option>
+            <option value="getVideoIdByIdDataByType" data-i18n="TequApi.parameters.getVideoIdByIdDataByType"></option>
+            <option value="getVideoIdById" data-i18n="TequApi.parameters.getVideoIdById"></option>
+            <option value="getVideo" data-i18n="TequApi.parameters.getVideo"></option>
+            <option value="postVideoAdd" data-i18n="TequApi.parameters.postVideoAdd"></option>
+            <option value="deleteVideoDeleteIdById" data-i18n="TequApi.parameters.deleteVideoDeleteIdById"></option>
+            <option value="getSensordataDatasourceByDatasourceSensorBySensor" data-i18n="TequApi.parameters.getSensordataDatasourceByDatasourceSensorBySensor"></option>
+            <option value="postSensordataDatasourceByDatasourceFind" data-i18n="TequApi.parameters.postSensordataDatasourceByDatasourceFind"></option>
+            <option value="postCvImage" data-i18n="TequApi.parameters.postCvImage"></option>
+            <option value="getCvModels" data-i18n="TequApi.parameters.getCvModels"></option>
+        </select>
+        &nbsp;
+        <input type="checkbox" id="optional-parameters" style="margin-left: 10px; vertical-align: text-bottom; width: auto;">
+        <label for="optional-parameters" id="optional-parameters-label" style="width: auto;"> <span data-i18n="TequApi.parameters.optionalParameters"></span></label>
+    </div>
+
+    <div class="form-row" id="postToken_username">
+        <label for="node-input-postToken_username"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.username"></span></label>
+
+        <input type="text" id="node-input-postToken_username" placeholder="Email address " style="width:70%">
+        <input type="hidden" id="node-input-postToken_usernameType">
+    </div>
+
+    <div class="form-row" id="postToken_password">
+        <label for="node-input-postToken_password"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.password"></span></label>
+
+        <input type="text" id="node-input-postToken_password" placeholder="Password" style="width:70%">
+        <input type="hidden" id="node-input-postToken_passwordType">
+    </div>
+
+    <div class="form-row" id="getDatasource_authorization">
+        <label for="node-input-getDatasource_authorization"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.authorization"></span></label>
+
+        <input type="text" id="node-input-getDatasource_authorization" placeholder="Bearer token." style="width:70%">
+        <input type="hidden" id="node-input-getDatasource_authorizationType">
+    </div>
+
+    <div class="form-row" id="getDatasource_galleryId">
+        <label for="node-input-getDatasource_galleryId"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.galleryId"></span></label>
+
+        <input type="text" id="node-input-getDatasource_galleryId" placeholder="Gallery identifier. Return datasources available for selected gallery." style="width:70%">
+        <input type="hidden" id="node-input-getDatasource_galleryIdType">
+    </div>
+
+    <div class="form-row" id="getDatasource_token">
+        <label for="node-input-getDatasource_token"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.token"></span></label>
+
+        <input type="text" id="node-input-getDatasource_token" placeholder="Bearer access token" style="width:70%">
+        <input type="hidden" id="node-input-getDatasource_tokenType">
+    </div>
+
+    <div class="form-row" id="getDatasourceIdById_id">
+        <label for="node-input-getDatasourceIdById_id"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.id"></span></label>
+
+        <input type="text" id="node-input-getDatasourceIdById_id" placeholder="" style="width:70%">
+        <input type="hidden" id="node-input-getDatasourceIdById_idType">
+    </div>
+
+    <div class="form-row" id="getDatasourceIdById_authorization">
+        <label for="node-input-getDatasourceIdById_authorization"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.authorization"></span></label>
+
+        <input type="text" id="node-input-getDatasourceIdById_authorization" placeholder="Bearer token." style="width:70%">
+        <input type="hidden" id="node-input-getDatasourceIdById_authorizationType">
+    </div>
+
+    <div class="form-row" id="getDatasourceIdById_token">
+        <label for="node-input-getDatasourceIdById_token"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.token"></span></label>
+
+        <input type="text" id="node-input-getDatasourceIdById_token" placeholder="Bearer access token" style="width:70%">
+        <input type="hidden" id="node-input-getDatasourceIdById_tokenType">
+    </div>
+
+    <div class="form-row" id="getGalleries_authorization">
+        <label for="node-input-getGalleries_authorization"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.authorization"></span></label>
+
+        <input type="text" id="node-input-getGalleries_authorization" placeholder="Bearer token." style="width:70%">
+        <input type="hidden" id="node-input-getGalleries_authorizationType">
+    </div>
+
+    <div class="form-row" id="getGalleries_token">
+        <label for="node-input-getGalleries_token"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.token"></span></label>
+
+        <input type="text" id="node-input-getGalleries_token" placeholder="Bearer access token" style="width:70%">
+        <input type="hidden" id="node-input-getGalleries_tokenType">
+    </div>
+
+    <div class="form-row" id="getImageIdByIdDataByType_id">
+        <label for="node-input-getImageIdByIdDataByType_id"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.id"></span></label>
+
+        <input type="text" id="node-input-getImageIdByIdDataByType_id" placeholder="Image identification" style="width:70%">
+        <input type="hidden" id="node-input-getImageIdByIdDataByType_idType">
+    </div>
+
+    <div class="form-row" id="getImageIdByIdDataByType_type">
+        <label for="node-input-getImageIdByIdDataByType_type"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.type"></span></label>
+
+        <input type="text" id="node-input-getImageIdByIdDataByType_type" placeholder="Image type. Possible types are 'original' and 'annotated'." style="width:70%">
+        <input type="hidden" id="node-input-getImageIdByIdDataByType_typeType">
+    </div>
+
+    <div class="form-row" id="getImageIdByIdDataByType_authorization">
+        <label for="node-input-getImageIdByIdDataByType_authorization"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.authorization"></span></label>
+
+        <input type="text" id="node-input-getImageIdByIdDataByType_authorization" placeholder="Bearer token" style="width:70%">
+        <input type="hidden" id="node-input-getImageIdByIdDataByType_authorizationType">
+    </div>
+
+    <div class="form-row" id="getImageIdByIdDataByType_token">
+        <label for="node-input-getImageIdByIdDataByType_token"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.token"></span></label>
+
+        <input type="text" id="node-input-getImageIdByIdDataByType_token" placeholder="Bearer access token" style="width:70%">
+        <input type="hidden" id="node-input-getImageIdByIdDataByType_tokenType">
+    </div>
+
+    <div class="form-row" id="getImageIdById_id">
+        <label for="node-input-getImageIdById_id"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.id"></span></label>
+
+        <input type="text" id="node-input-getImageIdById_id" placeholder="" style="width:70%">
+        <input type="hidden" id="node-input-getImageIdById_idType">
+    </div>
+
+    <div class="form-row" id="getImageIdById_authorization">
+        <label for="node-input-getImageIdById_authorization"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.authorization"></span></label>
+
+        <input type="text" id="node-input-getImageIdById_authorization" placeholder="Bearer token." style="width:70%">
+        <input type="hidden" id="node-input-getImageIdById_authorizationType">
+    </div>
+
+    <div class="form-row" id="getImageIdById_token">
+        <label for="node-input-getImageIdById_token"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.token"></span></label>
+
+        <input type="text" id="node-input-getImageIdById_token" placeholder="Bearer access token" style="width:70%">
+        <input type="hidden" id="node-input-getImageIdById_tokenType">
+    </div>
+
+    <div class="form-row" id="getImage_authorization">
+        <label for="node-input-getImage_authorization"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.authorization"></span></label>
+
+        <input type="text" id="node-input-getImage_authorization" placeholder="Bearer token" style="width:70%">
+        <input type="hidden" id="node-input-getImage_authorizationType">
+    </div>
+
+    <div class="form-row" id="getImage_limit">
+        <label for="node-input-getImage_limit"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.limit"></span></label>
+
+        <input type="text" id="node-input-getImage_limit" placeholder="Limit number of returned values. Default is 100 and maximum value is 1000." style="width:70%">
+        <input type="hidden" id="node-input-getImage_limitType">
+    </div>
+
+    <div class="form-row" id="getImage_startTime">
+        <label for="node-input-getImage_startTime"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.startTime"></span></label>
+
+        <input type="text" id="node-input-getImage_startTime" placeholder="Set start time. Values after start_time are returned. Time format is ISO8601 UTC,  2021-04-26T00:00:00Z. This is the time when image is actually created." style="width:70%">
+        <input type="hidden" id="node-input-getImage_startTimeType">
+    </div>
+
+    <div class="form-row" id="getImage_endTime">
+        <label for="node-input-getImage_endTime"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.endTime"></span></label>
+
+        <input type="text" id="node-input-getImage_endTime" placeholder="Set end time. Values after end time are not returned. End time parameter can not be used alone. Time format is ISO8601 UTC,  2021-04-26T00:00:00Z. This is the time when image is actually created." style="width:70%">
+        <input type="hidden" id="node-input-getImage_endTimeType">
+    </div>
+
+    <div class="form-row" id="getImage_datasource">
+        <label for="node-input-getImage_datasource"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.datasource"></span></label>
+
+        <input type="text" id="node-input-getImage_datasource" placeholder="Limit returned values by datasource(s). " style="width:70%">
+        <input type="hidden" id="node-input-getImage_datasourceType">
+    </div>
+
+    <div class="form-row" id="getImage_bookmark">
+        <label for="node-input-getImage_bookmark"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.bookmark"></span></label>
+
+        <input type="text" id="node-input-getImage_bookmark" placeholder="Use returned bookmark to fetch more results." style="width:70%">
+        <input type="hidden" id="node-input-getImage_bookmarkType">
+    </div>
+
+    <div class="form-row" id="getImage_sort">
+        <label for="node-input-getImage_sort"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.sort"></span></label>
+
+        <input type="text" id="node-input-getImage_sort" placeholder="Sort results by time. Possible values are "asc" or "desc". " style="width:70%">
+        <input type="hidden" id="node-input-getImage_sortType">
+    </div>
+
+    <div class="form-row" id="getImage_fields">
+        <label for="node-input-getImage_fields"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.fields"></span></label>
+
+        <input type="text" id="node-input-getImage_fields" placeholder="Array of fields that will be returned in response  To get available fields, please query single document without fields parameters." style="width:70%">
+        <input type="hidden" id="node-input-getImage_fieldsType">
+    </div>
+
+    <div class="form-row" id="getImage_token">
+        <label for="node-input-getImage_token"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.token"></span></label>
+
+        <input type="text" id="node-input-getImage_token" placeholder="Bearer access token" style="width:70%">
+        <input type="hidden" id="node-input-getImage_tokenType">
+    </div>
+
+    <div class="form-row" id="getImage_serverTimestampStart">
+        <label for="node-input-getImage_serverTimestampStart"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.serverTimestampStart"></span></label>
+
+        <input type="text" id="node-input-getImage_serverTimestampStart" placeholder="Set start time to query using server timestamp. Values after server_timestamp_start are returned. Time format is ISO8601 UTC,  2021-04-26T00:00:00Z. Do not use this parameter together with "start_time" or "end_time". This is the time when server has received the image." style="width:70%">
+        <input type="hidden" id="node-input-getImage_serverTimestampStartType">
+    </div>
+
+    <div class="form-row" id="getImage_serverTimestampEnd">
+        <label for="node-input-getImage_serverTimestampEnd"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.serverTimestampEnd"></span></label>
+
+        <input type="text" id="node-input-getImage_serverTimestampEnd" placeholder="Set endtime to query using server timestamp. Values after server_timestamp_end are returned. Time format is ISO8601 UTC,  2021-04-26T00:00:00Z. Do not use this parameter together with "start_time" or "end_time". This is the time when server has received the image." style="width:70%">
+        <input type="hidden" id="node-input-getImage_serverTimestampEndType">
+    </div>
+
+    <div class="form-row" id="postImageAdd_authorization">
+        <label for="node-input-postImageAdd_authorization"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.authorization"></span></label>
+
+        <input type="text" id="node-input-postImageAdd_authorization" placeholder="Bearer token" style="width:70%">
+        <input type="hidden" id="node-input-postImageAdd_authorizationType">
+    </div>
+
+    <div class="form-row" id="postImageAdd_payload">
+        <label for="node-input-postImageAdd_payload"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.payload"></span></label>
+
+        <input type="text" id="node-input-postImageAdd_payload" placeholder="" style="width:70%">
+        <input type="hidden" id="node-input-postImageAdd_payloadType">
+    </div>
+
+    <div class="form-row" id="deleteImageDeleteIdById_authorization">
+        <label for="node-input-deleteImageDeleteIdById_authorization"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.authorization"></span></label>
+
+        <input type="text" id="node-input-deleteImageDeleteIdById_authorization" placeholder="Bearer token." style="width:70%">
+        <input type="hidden" id="node-input-deleteImageDeleteIdById_authorizationType">
+    </div>
+
+    <div class="form-row" id="deleteImageDeleteIdById_id">
+        <label for="node-input-deleteImageDeleteIdById_id"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.id"></span></label>
+
+        <input type="text" id="node-input-deleteImageDeleteIdById_id" placeholder="Image id" style="width:70%">
+        <input type="hidden" id="node-input-deleteImageDeleteIdById_idType">
+    </div>
+
+    <div class="form-row" id="getVideoIdByIdDataByType_id">
+        <label for="node-input-getVideoIdByIdDataByType_id"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.id"></span></label>
+
+        <input type="text" id="node-input-getVideoIdByIdDataByType_id" placeholder="Video clip unique identifier." style="width:70%">
+        <input type="hidden" id="node-input-getVideoIdByIdDataByType_idType">
+    </div>
+
+    <div class="form-row" id="getVideoIdByIdDataByType_authorization">
+        <label for="node-input-getVideoIdByIdDataByType_authorization"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.authorization"></span></label>
+
+        <input type="text" id="node-input-getVideoIdByIdDataByType_authorization" placeholder="Bearer token" style="width:70%">
+        <input type="hidden" id="node-input-getVideoIdByIdDataByType_authorizationType">
+    </div>
+
+    <div class="form-row" id="getVideoIdByIdDataByType_type">
+        <label for="node-input-getVideoIdByIdDataByType_type"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.type"></span></label>
+
+        <input type="text" id="node-input-getVideoIdByIdDataByType_type" placeholder="Image type. Possible are: 'original'." style="width:70%">
+        <input type="hidden" id="node-input-getVideoIdByIdDataByType_typeType">
+    </div>
+
+    <div class="form-row" id="getVideoIdByIdDataByType_token">
+        <label for="node-input-getVideoIdByIdDataByType_token"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.token"></span></label>
+
+        <input type="text" id="node-input-getVideoIdByIdDataByType_token" placeholder="Bearer access token" style="width:70%">
+        <input type="hidden" id="node-input-getVideoIdByIdDataByType_tokenType">
+    </div>
+
+    <div class="form-row" id="getVideoIdById_id">
+        <label for="node-input-getVideoIdById_id"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.id"></span></label>
+
+        <input type="text" id="node-input-getVideoIdById_id" placeholder="Video clip unique identifier." style="width:70%">
+        <input type="hidden" id="node-input-getVideoIdById_idType">
+    </div>
+
+    <div class="form-row" id="getVideoIdById_authorization">
+        <label for="node-input-getVideoIdById_authorization"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.authorization"></span></label>
+
+        <input type="text" id="node-input-getVideoIdById_authorization" placeholder="Bearer token." style="width:70%">
+        <input type="hidden" id="node-input-getVideoIdById_authorizationType">
+    </div>
+
+    <div class="form-row" id="getVideoIdById_token">
+        <label for="node-input-getVideoIdById_token"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.token"></span></label>
+
+        <input type="text" id="node-input-getVideoIdById_token" placeholder="Bearer access token" style="width:70%">
+        <input type="hidden" id="node-input-getVideoIdById_tokenType">
+    </div>
+
+    <div class="form-row" id="getVideo_authorization">
+        <label for="node-input-getVideo_authorization"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.authorization"></span></label>
+
+        <input type="text" id="node-input-getVideo_authorization" placeholder="Bearer token" style="width:70%">
+        <input type="hidden" id="node-input-getVideo_authorizationType">
+    </div>
+
+    <div class="form-row" id="getVideo_limit">
+        <label for="node-input-getVideo_limit"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.limit"></span></label>
+
+        <input type="text" id="node-input-getVideo_limit" placeholder="Limit number of returned values. Default is 100 and maximum value is 1000." style="width:70%">
+        <input type="hidden" id="node-input-getVideo_limitType">
+    </div>
+
+    <div class="form-row" id="getVideo_startTime">
+        <label for="node-input-getVideo_startTime"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.startTime"></span></label>
+
+        <input type="text" id="node-input-getVideo_startTime" placeholder="Set start time. Values after start_time are returned. Time format is ISO8601 UTC,  2021-04-26T00:00:00Z." style="width:70%">
+        <input type="hidden" id="node-input-getVideo_startTimeType">
+    </div>
+
+    <div class="form-row" id="getVideo_endTime">
+        <label for="node-input-getVideo_endTime"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.endTime"></span></label>
+
+        <input type="text" id="node-input-getVideo_endTime" placeholder="Set end time. Values after end time are not returned. End time parameter can not be used alone. Time format is ISO8601 UTC,  2021-04-26T00:00:00Z." style="width:70%">
+        <input type="hidden" id="node-input-getVideo_endTimeType">
+    </div>
+
+    <div class="form-row" id="getVideo_datasouce">
+        <label for="node-input-getVideo_datasouce"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.datasouce"></span></label>
+
+        <input type="text" id="node-input-getVideo_datasouce" placeholder="Limit returned values by datasource(s). " style="width:70%">
+        <input type="hidden" id="node-input-getVideo_datasouceType">
+    </div>
+
+    <div class="form-row" id="getVideo_bookmark">
+        <label for="node-input-getVideo_bookmark"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.bookmark"></span></label>
+
+        <input type="text" id="node-input-getVideo_bookmark" placeholder="Use bookmark to fetch more results." style="width:70%">
+        <input type="hidden" id="node-input-getVideo_bookmarkType">
+    </div>
+
+    <div class="form-row" id="getVideo_sort">
+        <label for="node-input-getVideo_sort"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.sort"></span></label>
+
+        <input type="text" id="node-input-getVideo_sort" placeholder="Sort results by time. Possible values are "asc" or "desc". " style="width:70%">
+        <input type="hidden" id="node-input-getVideo_sortType">
+    </div>
+
+    <div class="form-row" id="getVideo_fields">
+        <label for="node-input-getVideo_fields"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.fields"></span></label>
+
+        <input type="text" id="node-input-getVideo_fields" placeholder="Array of fields that will be returned in response  To get available fields, please query single document without fields parameters." style="width:70%">
+        <input type="hidden" id="node-input-getVideo_fieldsType">
+    </div>
+
+    <div class="form-row" id="getVideo_token">
+        <label for="node-input-getVideo_token"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.token"></span></label>
+
+        <input type="text" id="node-input-getVideo_token" placeholder="Bearer access token" style="width:70%">
+        <input type="hidden" id="node-input-getVideo_tokenType">
+    </div>
+
+    <div class="form-row" id="postVideoAdd_authorization">
+        <label for="node-input-postVideoAdd_authorization"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.authorization"></span></label>
+
+        <input type="text" id="node-input-postVideoAdd_authorization" placeholder="Bearer token" style="width:70%">
+        <input type="hidden" id="node-input-postVideoAdd_authorizationType">
+    </div>
+
+    <div class="form-row" id="postVideoAdd_payload">
+        <label for="node-input-postVideoAdd_payload"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.payload"></span></label>
+
+        <input type="text" id="node-input-postVideoAdd_payload" placeholder="" style="width:70%">
+        <input type="hidden" id="node-input-postVideoAdd_payloadType">
+    </div>
+
+    <div class="form-row" id="deleteVideoDeleteIdById_authorization">
+        <label for="node-input-deleteVideoDeleteIdById_authorization"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.authorization"></span></label>
+
+        <input type="text" id="node-input-deleteVideoDeleteIdById_authorization" placeholder="Bearer token." style="width:70%">
+        <input type="hidden" id="node-input-deleteVideoDeleteIdById_authorizationType">
+    </div>
+
+    <div class="form-row" id="deleteVideoDeleteIdById_id">
+        <label for="node-input-deleteVideoDeleteIdById_id"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.id"></span></label>
+
+        <input type="text" id="node-input-deleteVideoDeleteIdById_id" placeholder="Video clip unique identifier." style="width:70%">
+        <input type="hidden" id="node-input-deleteVideoDeleteIdById_idType">
+    </div>
+
+    <div class="form-row" id="getSensordataDatasourceByDatasourceSensorBySensor_datasource">
+        <label for="node-input-getSensordataDatasourceByDatasourceSensorBySensor_datasource"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.datasource"></span></label>
+
+        <input type="text" id="node-input-getSensordataDatasourceByDatasourceSensorBySensor_datasource" placeholder="Datasource ID." style="width:70%">
+        <input type="hidden" id="node-input-getSensordataDatasourceByDatasourceSensorBySensor_datasourceType">
+    </div>
+
+    <div class="form-row" id="getSensordataDatasourceByDatasourceSensorBySensor_sensor">
+        <label for="node-input-getSensordataDatasourceByDatasourceSensorBySensor_sensor"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.sensor"></span></label>
+
+        <input type="text" id="node-input-getSensordataDatasourceByDatasourceSensorBySensor_sensor" placeholder="Sensor ID." style="width:70%">
+        <input type="hidden" id="node-input-getSensordataDatasourceByDatasourceSensorBySensor_sensorType">
+    </div>
+
+    <div class="form-row" id="getSensordataDatasourceByDatasourceSensorBySensor_startTime">
+        <label for="node-input-getSensordataDatasourceByDatasourceSensorBySensor_startTime"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.startTime"></span></label>
+
+        <input type="text" id="node-input-getSensordataDatasourceByDatasourceSensorBySensor_startTime" placeholder="ISO8601 UTC timestamp." style="width:70%">
+        <input type="hidden" id="node-input-getSensordataDatasourceByDatasourceSensorBySensor_startTimeType">
+    </div>
+
+    <div class="form-row" id="getSensordataDatasourceByDatasourceSensorBySensor_endTime">
+        <label for="node-input-getSensordataDatasourceByDatasourceSensorBySensor_endTime"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.endTime"></span></label>
+
+        <input type="text" id="node-input-getSensordataDatasourceByDatasourceSensorBySensor_endTime" placeholder="ISO8601 UTC timestamp." style="width:70%">
+        <input type="hidden" id="node-input-getSensordataDatasourceByDatasourceSensorBySensor_endTimeType">
+    </div>
+
+    <div class="form-row" id="getSensordataDatasourceByDatasourceSensorBySensor_aggregation">
+        <label for="node-input-getSensordataDatasourceByDatasourceSensorBySensor_aggregation"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.aggregation"></span></label>
+
+        <input type="text" id="node-input-getSensordataDatasourceByDatasourceSensorBySensor_aggregation" placeholder="Aggregation level. Returns aggregated values over selected time period. Possible time periods: year, month, day, hour, minute or none. For example if "hour" is selected, returns exactly one value for each hour. " style="width:70%">
+        <input type="hidden" id="node-input-getSensordataDatasourceByDatasourceSensorBySensor_aggregationType">
+    </div>
+
+    <div class="form-row" id="getSensordataDatasourceByDatasourceSensorBySensor_limit">
+        <label for="node-input-getSensordataDatasourceByDatasourceSensorBySensor_limit"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.limit"></span></label>
+
+        <input type="text" id="node-input-getSensordataDatasourceByDatasourceSensorBySensor_limit" placeholder="Limit number of returned results." style="width:70%">
+        <input type="hidden" id="node-input-getSensordataDatasourceByDatasourceSensorBySensor_limitType">
+    </div>
+
+    <div class="form-row" id="getSensordataDatasourceByDatasourceSensorBySensor_skip">
+        <label for="node-input-getSensordataDatasourceByDatasourceSensorBySensor_skip"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.skip"></span></label>
+
+        <input type="text" id="node-input-getSensordataDatasourceByDatasourceSensorBySensor_skip" placeholder="Skip results starting from beginning." style="width:70%">
+        <input type="hidden" id="node-input-getSensordataDatasourceByDatasourceSensorBySensor_skipType">
+    </div>
+
+    <div class="form-row" id="getSensordataDatasourceByDatasourceSensorBySensor_format">
+        <label for="node-input-getSensordataDatasourceByDatasourceSensorBySensor_format"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.format"></span></label>
+
+        <input type="text" id="node-input-getSensordataDatasourceByDatasourceSensorBySensor_format" placeholder="Response formatting. Default is raw. Options = "raw", "plotly", "chartjs"" style="width:70%">
+        <input type="hidden" id="node-input-getSensordataDatasourceByDatasourceSensorBySensor_formatType">
+    </div>
+
+    <div class="form-row" id="getSensordataDatasourceByDatasourceSensorBySensor_timezone">
+        <label for="node-input-getSensordataDatasourceByDatasourceSensorBySensor_timezone"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.timezone"></span></label>
+
+        <input type="text" id="node-input-getSensordataDatasourceByDatasourceSensorBySensor_timezone" placeholder="Timezone for timestamp. Default is UTC. Timezone format is standard format, for example "Europe/Helsinki".  " style="width:70%">
+        <input type="hidden" id="node-input-getSensordataDatasourceByDatasourceSensorBySensor_timezoneType">
+    </div>
+
+    <div class="form-row" id="getSensordataDatasourceByDatasourceSensorBySensor_acceptEncoding">
+        <label for="node-input-getSensordataDatasourceByDatasourceSensorBySensor_acceptEncoding"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.acceptEncoding"></span></label>
+
+        <input type="text" id="node-input-getSensordataDatasourceByDatasourceSensorBySensor_acceptEncoding" placeholder="Supported values: gzip" style="width:70%">
+        <input type="hidden" id="node-input-getSensordataDatasourceByDatasourceSensorBySensor_acceptEncodingType">
+    </div>
+
+    <div class="form-row" id="getSensordataDatasourceByDatasourceSensorBySensor_authorization">
+        <label for="node-input-getSensordataDatasourceByDatasourceSensorBySensor_authorization"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.authorization"></span></label>
+
+        <input type="text" id="node-input-getSensordataDatasourceByDatasourceSensorBySensor_authorization" placeholder="Bearer token" style="width:70%">
+        <input type="hidden" id="node-input-getSensordataDatasourceByDatasourceSensorBySensor_authorizationType">
+    </div>
+
+    <div class="form-row" id="postSensordataDatasourceByDatasourceFind_authorization">
+        <label for="node-input-postSensordataDatasourceByDatasourceFind_authorization"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.authorization"></span></label>
+
+        <input type="text" id="node-input-postSensordataDatasourceByDatasourceFind_authorization" placeholder="Bearer token" style="width:70%">
+        <input type="hidden" id="node-input-postSensordataDatasourceByDatasourceFind_authorizationType">
+    </div>
+
+    <div class="form-row" id="postSensordataDatasourceByDatasourceFind_datasource">
+        <label for="node-input-postSensordataDatasourceByDatasourceFind_datasource"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.datasource"></span></label>
+
+        <input type="text" id="node-input-postSensordataDatasourceByDatasourceFind_datasource" placeholder="Datasource." style="width:70%">
+        <input type="hidden" id="node-input-postSensordataDatasourceByDatasourceFind_datasourceType">
+    </div>
+
+    <div class="form-row" id="postSensordataDatasourceByDatasourceFind_query">
+        <label for="node-input-postSensordataDatasourceByDatasourceFind_query"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.query"></span></label>
+
+        <input type="text" id="node-input-postSensordataDatasourceByDatasourceFind_query" placeholder="" style="width:70%">
+        <input type="hidden" id="node-input-postSensordataDatasourceByDatasourceFind_queryType">
+    </div>
+
+    <div class="form-row" id="postSensordataDatasourceByDatasourceFind_archive">
+        <label for="node-input-postSensordataDatasourceByDatasourceFind_archive"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.archive"></span></label>
+
+        <input type="text" id="node-input-postSensordataDatasourceByDatasourceFind_archive" placeholder="" style="width:70%">
+        <input type="hidden" id="node-input-postSensordataDatasourceByDatasourceFind_archiveType">
+    </div>
+
+    <div class="form-row" id="postCvImage_authorization">
+        <label for="node-input-postCvImage_authorization"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.authorization"></span></label>
+
+        <input type="text" id="node-input-postCvImage_authorization" placeholder="Bearer token" style="width:70%">
+        <input type="hidden" id="node-input-postCvImage_authorizationType">
+    </div>
+
+    <div class="form-row" id="postCvImage_payload">
+        <label for="node-input-postCvImage_payload"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.payload"></span></label>
+
+        <input type="text" id="node-input-postCvImage_payload" placeholder="" style="width:70%">
+        <input type="hidden" id="node-input-postCvImage_payloadType">
+    </div>
+
+    <div class="form-row" id="postCvImage_model">
+        <label for="node-input-postCvImage_model"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.model"></span></label>
+
+        <input type="text" id="node-input-postCvImage_model" placeholder="" style="width:70%">
+        <input type="hidden" id="node-input-postCvImage_modelType">
+    </div>
+
+    <div class="form-row" id="getCvModels_authorization">
+        <label for="node-input-getCvModels_authorization"><i class="fa fa-list"></i> <span data-i18n="TequApi.parameters.authorization"></span></label>
+
+        <input type="text" id="node-input-getCvModels_authorization" placeholder="Bearer token" style="width:70%">
+        <input type="hidden" id="node-input-getCvModels_authorizationType">
+    </div>
+
+    <hr/>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="tequ-api-client">
+
+    <p>With this API you can query, edit and add data to Lapland UAS Tequ research team object&image&video database created in Fish-IoT project. For basic users there is website where you can register, login and search the data based on your user rights.<br><br> <a href=https://ai.tequ.fi>Open Tequ AI website</a> <br><br>After registration contact the API support to gain access to datasources.<br><br>If you need machine or application level access to API, please contact API support to obtain credentials for claiming access token.</p>
+    <p><b>Methods</b></p>
+        <h3>POST /refresh</h3>
+        <p>Refresh token. (NOT IMPLEMENTED YET)</p>
+        <dl class="message-properties">
+        </dl>
+        <h3>POST /token</h3>
+        <p>Use access token in all your requests to API.</p>
+        <dl class="message-properties">
+        <dt>username <span class="property-type">string</span></dt>
+        <dt>password <span class="property-type">string</span></dt>
+        </dl>
+        <h3>GET /datasource</h3>
+        <p>Metadata of available datasources.</p>
+        <dl class="message-properties">
+        <dt>authorization <span class="property-type">string</span></dt>
+        <dt>gallery_id <span class="property-type">array</span></dt>
+        <dt>token <span class="property-type">string</span></dt>
+        </dl>
+        <h3>GET /datasource/id/{id}</h3>
+        <p>Metadata of single datasource.</p>
+        <dl class="message-properties">
+        <dt>id <span class="property-type">string</span></dt>
+        <dt>authorization <span class="property-type">string</span></dt>
+        <dt>token <span class="property-type">string</span></dt>
+        </dl>
+        <h3>GET /galleries</h3>
+        <p>Metadata of gallery types.</p>
+        <dl class="message-properties">
+        <dt>authorization <span class="property-type">string</span></dt>
+        <dt>token <span class="property-type">string</span></dt>
+        </dl>
+        <h3>GET /image/id/{id}/data/{type}</h3>
+        <p>Download single image.</p>
+        <dl class="message-properties">
+        <dt>id <span class="property-type">string</span></dt>
+        <dt>type <span class="property-type">string</span></dt>
+        <dt>authorization <span class="property-type">string</span></dt>
+        <dt>token <span class="property-type">string</span></dt>
+        </dl>
+        <h3>GET /image/id/{id}</h3>
+        <p>List metadata of single image.</p>
+        <dl class="message-properties">
+        <dt>id <span class="property-type">string</span></dt>
+        <dt>authorization <span class="property-type">string</span></dt>
+        <dt>token <span class="property-type">string</span></dt>
+        </dl>
+        <h3>GET /image</h3>
+        <p>Defaults to return metadata of all images that user has access. </p>
+        <dl class="message-properties">
+        <dt>authorization <span class="property-type">string</span></dt>
+        <dt>limit <span class="property-type">number</span></dt>
+        <dt>start_time <span class="property-type">string</span></dt>
+        <dt>end_time <span class="property-type">string</span></dt>
+        <dt>datasource <span class="property-type">array</span></dt>
+        <dt>bookmark <span class="property-type">string</span></dt>
+        <dt>sort <span class="property-type">string</span></dt>
+        <dt>fields <span class="property-type">array</span></dt>
+        <dt>token <span class="property-type">string</span></dt>
+        <dt>server_timestamp_start <span class="property-type">string</span></dt>
+        <dt>server_timestamp_end <span class="property-type">string</span></dt>
+        </dl>
+        <h3>POST /image/add</h3>
+        <p>Add single image to database or update existing image.</p>
+        <dl class="message-properties">
+        <dt>authorization <span class="property-type">string</span></dt>
+        <dt>payload <span class="property-type"></span></dt>
+        </dl>
+        <h3>DELETE /image/delete/id/{id}</h3>
+        <p>Delete single image from the database. This operation also deletes any possible images stored in object storage that are defined in metadata.</p>
+        <dl class="message-properties">
+        <dt>authorization <span class="property-type">string</span></dt>
+        <dt>id <span class="property-type">string</span></dt>
+        </dl>
+        <h3>GET /video/id/{id}/data/{type}</h3>
+        <p>Download single video clip.</p>
+        <dl class="message-properties">
+        <dt>id <span class="property-type">string</span></dt>
+        <dt>authorization <span class="property-type">string</span></dt>
+        <dt>type <span class="property-type">string</span></dt>
+        <dt>token <span class="property-type">string</span></dt>
+        </dl>
+        <h3>GET /video/id/{id}</h3>
+        <p>List metadata of single video clip.</p>
+        <dl class="message-properties">
+        <dt>id <span class="property-type">string</span></dt>
+        <dt>authorization <span class="property-type">string</span></dt>
+        <dt>token <span class="property-type">string</span></dt>
+        </dl>
+        <h3>GET /video</h3>
+        <p>Defaults to return metadata of all video clips that user has access.</p>
+        <dl class="message-properties">
+        <dt>authorization <span class="property-type">string</span></dt>
+        <dt>limit <span class="property-type">number</span></dt>
+        <dt>start_time <span class="property-type">string</span></dt>
+        <dt>end_time <span class="property-type">string</span></dt>
+        <dt>datasouce <span class="property-type">array</span></dt>
+        <dt>bookmark <span class="property-type">string</span></dt>
+        <dt>sort <span class="property-type">string</span></dt>
+        <dt>fields <span class="property-type">array</span></dt>
+        <dt>token <span class="property-type">string</span></dt>
+        </dl>
+        <h3>POST /video/add</h3>
+        <p>Add single video clip to database or update existing video clip.</p>
+        <dl class="message-properties">
+        <dt>authorization <span class="property-type">string</span></dt>
+        <dt>payload <span class="property-type"></span></dt>
+        </dl>
+        <h3>DELETE /video/delete/id/{id}</h3>
+        <p>Delete single video clip from the database. This operation also deletes any possible video clip stored in object storage that are defined in metadata.</p>
+        <dl class="message-properties">
+        <dt>authorization <span class="property-type">string</span></dt>
+        <dt>id <span class="property-type">string</span></dt>
+        </dl>
+        <h3>GET /sensordata/datasource/{datasource}/sensor/{sensor}</h3>
+        <p>Load sensor data for selected time range. Possible sensor datasources can be requested via /datasource endpoint. Datasources that have sensordata are identified with type='sensordata'.</p>
+        <dl class="message-properties">
+        <dt>datasource <span class="property-type">string</span></dt>
+        <dt>sensor <span class="property-type">string</span></dt>
+        <dt>start_time <span class="property-type">string</span></dt>
+        <dt>end_time <span class="property-type">string</span></dt>
+        <dt>aggregation <span class="property-type">string</span></dt>
+        <dt>limit <span class="property-type">number</span></dt>
+        <dt>skip <span class="property-type">number</span></dt>
+        <dt>format <span class="property-type">string</span></dt>
+        <dt>timezone <span class="property-type">string</span></dt>
+        <dt>Accept-Encoding <span class="property-type">string</span></dt>
+        <dt>Authorization <span class="property-type">string</span></dt>
+        </dl>
+        <h3>POST /sensordata/datasource/{datasource}/find</h3>
+        <p>Find sensor data for selected datasource. Possible datasources can be requested via /datasource endpoint. Datasources that have sensordata are identified with type='sensordata'.</p>
+        <dl class="message-properties">
+        <dt>Authorization <span class="property-type">string</span></dt>
+        <dt>datasource <span class="property-type">string</span></dt>
+        <dt>query <span class="property-type"></span></dt>
+        <dt>archive <span class="property-type"></span></dt>
+        </dl>
+        <h3>POST /cv/image</h3>
+        <p>Use computer vision model.</p>
+        <dl class="message-properties">
+        <dt>authorization <span class="property-type">string</span></dt>
+        <dt>payload <span class="property-type"></span></dt>
+        <dt>model <span class="property-type"></span></dt>
+        </dl>
+        <h3>GET /cv/models</h3>
+        <p>List available computer vision models and metadata of the models. </p>
+        <dl class="message-properties">
+        <dt>authorization <span class="property-type">string</span></dt>
+        </dl>
+</script>
